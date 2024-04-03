@@ -28,9 +28,9 @@ nav, .mob-nav {
     font-size: 14px;
     padding: 1px 5px;
     border-radius: 50%;
-    font-weight: 600;
-    background-color: red;
-    color: white;
+    font-weight: 700;
+    color: #3d1551;
+    font-family: "Literata";
 }
 .mob-nav {
     display: none !important;

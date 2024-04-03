@@ -1,0 +1,192 @@
+.detailsWrapper {
+    border-radius: 16px;
+    margin: 20px auto;
+    padding: 16px 40px;
+    border: none !important;
+    width: 90%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #f3ebfc;
+}
+.details {
+    gap: 24px;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    align-items: center;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.image {
+    width: 100%;
+    /* height: 360px; */
+}
+.details div h2 {
+    font-size: 22px;
+    font-family: "Literata", serif;
+    color: #060208;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+.details div p {
+    font-family: "Aceh", sans-serif;
+    color: #3d3732;
+}
+.details div h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #060208;
+    margin-bottom: 12px;
+}
+.price {
+    font-family: "Aceh", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-block: 8px;
+}
+.price svg {
+    vertical-align: top;
+}
+em {
+    font-family: "Aceh", sans-serif;
+    font-size: 20px;
+    margin-top: 16px;
+    display: block;
+}
+.counts, .sizes {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-block: 12px;
+}
+.counts p, .counts button, .sizes button {
+    border: 2px solid #f3ebfc;
+    background-color: transparent;
+    color: #3d1551;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 22px;
+    line-height: normal;
+}
+.counts h5 {
+    font-size: 17px;
+    text-wrap: wrap;
+    color: #3d1551;
+    font-family: "Aceh", sans-serif;
+}
+.counts button {
+    cursor: pointer;
+}
+.counts p {
+    padding: 5px 18px;
+}
+.sizes button {
+    padding: 4px 15px;
+}
+.sizes button:focus {
+    background-color: #f3ebfc;
+}
+.dateBtn {
+    font-family: "Aceh", sans-serif;
+    background-color: #f3ebfc;
+    border-radius: 6px;
+    font-size: 20px;
+    padding: 10px 24px;
+    text-wrap: wrap;
+    display: flex !important;
+    gap: 12px;
+    align-items: center;
+    color: #060208;
+    border: none;
+    cursor: pointer;
+}
+.cartButton {
+    border: 1px solid #3d1551;
+    padding: 10px;
+    display: flex;
+    gap: 28px;
+    width: 80%;
+    font-size: 17px;
+    justify-content: center;
+    border-radius: 8px;
+    align-items: center;
+    margin-top: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all ease-in;
+}
+.dates {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.last {
+    display: flex;
+    gap: 12px;
+    width: 80%;
+    margin-top: 16px;
+}
+.last button {
+    background-color: #3d1551;
+    color: #ffffff;
+    padding: 16px;
+    flex: 1;
+    font-family: "Aceh", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: none;
+    border-radius: 6px;
+}
+
+
+@media screen and (max-width: 1250px) {
+    
+  }
+  
+@media screen and (max-width: 1024px) {
+    .cartButton, .last {
+        width: 100%;
+    }
+    .last button:first-child {
+        flex: 0.6;
+        justify-content: center;
+    }
+    .last button svg {
+        width: 24px;
+        height: 24px;
+    }
+    .last button {
+        font-size: 18px;
+        /* justify-content: space-between; */
+        padding: 16px 12px;
+        /* gap: unset; */
+    }
+    .details {
+        grid-template-columns: 340px 1fr;
+    }
+}
+  
+@media screen and (max-width: 740px) {
+    .detailsWrapper {
+        width: 80%;
+        padding: 28px 40px;
+    }
+    .details {
+        grid-template-columns: 1fr;
+    }
+    .image {
+        width: 80%;
+        /* height: 400px; */
+    }
+}
+@media screen and (max-width: 568px) {
+    .image {
+        width: 100%;
+    }
+}

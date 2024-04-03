@@ -1,0 +1,134 @@
+.products {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.categories {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding: 0;
+    column-gap: 30px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.categories h4 {
+    text-wrap: wrap;
+    font-family: "Aceh", sans-serif;
+    cursor: pointer;
+    font-size: 24px;
+    /* transition: all 0.3s ease-in-out; */
+}
+.products .categories button {
+    font-family: "Aceh", sans-serif;
+    background-color: #3d1551;
+    border-radius: 6px;
+    font-size: 20px;
+    padding: 10px;
+    text-wrap: wrap;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: white;
+    border: none;
+}
+.products main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin-top: 32px;
+}
+article.product {
+    padding: 16px;
+    box-shadow: 1px 1px 6px 1px rgba(61, 21, 81, 0.4);
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+article.product > img {
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+}
+.price {
+    font-family: "Aceh", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    /* margin-block: 8px; */
+}
+.price svg {
+    vertical-align: top;
+}
+.name {
+    font-family: "Aceh", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.cartButton {
+    border: 1px solid #3d1551;
+    padding: 16px 8px;
+    display: flex;
+    gap: 28px;
+    width: 100%;
+    font-size: 17px;
+    justify-content: center;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+.more {
+    background-color: #f3ebfc;
+    color: #060208;
+    border-radius: 6px;
+    margin: 40px 25%;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 1250px) {
+    .products main {
+        grid-template-columns: 1fr 1fr;
+    }
+    .products header button {
+        font-size: 19px;
+    }
+    header h4 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .products header {
+        row-gap: 10px;
+        column-gap: 30px;
+        justify-content: unset;
+    }
+    article.product > img {
+        height: 280px;
+    }
+
+}
+  
+  @media screen and (max-width: 740px) {
+    .wrapper {
+      padding: 30px 45px;
+    }
+    .wrapper h1 {
+      font-size: 36px;
+    }
+    .products main {
+        grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 568px) {
+    .wrapper {
+        padding: 20px 30px;
+    }
+  }

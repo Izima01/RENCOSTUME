@@ -4,7 +4,6 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Root from './Root.jsx';
 import Listing from './Pages/ProductListing/Listing.jsx';
-import ProductDetail from './Pages/ProductDetail/ProductDetail.jsx';
 import Home from './Pages/Home/Home.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
 import Checkout from './Pages/CheckoutPage/Checkout.jsx';
@@ -36,11 +35,7 @@ const router = createBrowserRouter([
         element: <Success />
       }
     ]
-  },
-  {
-    path: '/products/:productId',
-    element: <ProductDetail />
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
