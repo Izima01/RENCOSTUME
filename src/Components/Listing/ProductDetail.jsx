@@ -72,7 +72,7 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
       <div className={styles.details}>
         <IoClose size={28} className={styles.close} onClick={() => setShowDetails(false)} />
         <div>
-          <button onClick={() => removeAll()}>Clear Cart</button>
+          {/* <button onClick={() => removeAll()}>Clear Cart</button> */}
             <img src={selectedProduct?.image} className={styles.image} alt="" />
             <h2>Description</h2>
             <p>{selectedProduct?.description || "The Nefertiti woven crown, inspired by ancient Egyptian regality, exudes opulence and grace. Crafted with intricate golden threads."}</p>
