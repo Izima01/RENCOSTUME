@@ -43,7 +43,7 @@ const Header = () => {
         <Link>
           <CiHeart size={24} stroke='#060208' />
         </Link>
-        <Link to="/shopping-cart">
+        <Link to="/shopping-cart" className='cart'>
           <IoCartOutline size={24} stroke='#060208' />
           {
             cart.length !== 0 ? <p>{count()}</p> : <></>

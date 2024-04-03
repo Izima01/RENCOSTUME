@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import { useEffect } from 'react';
 import useStore from '../store';
 import supabase from './supaBaseClient';
+import ScrollButton from './Components/ScrollUp';
 
 const Root = () => {
   const loc = useLocation();
@@ -29,6 +30,7 @@ const Root = () => {
     <>
       <Header />
       <Outlet />
+      <ScrollButton />
       {
         loc.pathname == '/' ? <Footer /> : <></>
       }

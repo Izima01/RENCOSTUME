@@ -1,0 +1,64 @@
+.filters {
+    background-color: #f3ebfc;
+    width: 100% !important;
+    padding: 26px 14px !important;
+    border-radius: 10px;
+    display: block;
+}
+
+.filters h3 {
+    font-family: "Literata", serif;
+    font-size: 28px;
+    color: #060208;
+    padding-bottom: 6px;
+    width: 100%;
+    border-bottom: 1px solid #060208;
+}
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+    color: #060208;
+    margin-top: 0;
+    cursor: pointer;
+    margin-top: 16px;
+}
+.heading svg {
+    transition: transform 0.4s;
+}
+.heading h5 {
+    font-size: 20px;
+}
+
+.filters > div {
+    border: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    transition: max-height 0.4s;
+}
+
+.filters label {
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.filters label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.filters hr {
+    position: static;
+    margin-top: 12px;
+    color: #363732;
+}

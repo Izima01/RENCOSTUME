@@ -4,11 +4,6 @@
     font-family: Aceh;
     src: url(./assets/fonts/Aceh-Regular.otf) format('opentype');
 }
-
-.homeWrapper {
-    width: 100%;
-    overflow-x: hidden;
-}
 .hero {
     position: relative;
     background: url(../../assets/hero-bg.png);
@@ -92,30 +87,32 @@ h1 {
 @media screen and (max-width: 740px) {
     .heroText {
         padding-top: 30px;
-        padding-left: 45px;
+        padding-left: 30px;
     }
     h1 {
-        font-size: 36px;
+        font-size: 40px;
     }
-    .heroText button {
-        font-size: 16px;
-    }
-    .hero button {
+    .hero > button {
         display: none;
+    }
+    .hero {
+        height: 85vh;
     }
 }
 
 @media screen and (max-width: 568px) {
-    h1 {
-        font-size: 28px;
-        width: 70%;
+    .hero {
+        height: 80vh;
+    }
+    .heroText {
+        font-size: 32px;
+        width: 100%;
     }
     .heroText > p {
-        font-size: 16px;
-        width: 65%;
-        padding-left: 30px;
+        font-size: 18px;
+        width: 70%;
     }
     .heroText button {
-        padding: 10px;
+        padding: 12px;
     }
 }

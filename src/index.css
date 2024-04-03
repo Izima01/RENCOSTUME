@@ -11,18 +11,24 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-
 body {
   width: 100%;
 }
-.scroll {
-  border: 4px solid #3d1551;
-  border-radius: 100%;
-  padding: 10px;
-  background-color: #ffffff;
+.scroll-button {
   position: fixed;
   bottom: 40px;
   right: 40px;
   z-index: 5;
+  border: 3px solid #3d1551;
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.scroll-button img {
+  width: 42px;
+  height: 42px;
+}
+.react-datepicker-wrapper {
+  display: block !important;
 }
