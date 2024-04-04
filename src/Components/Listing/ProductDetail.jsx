@@ -9,18 +9,30 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import useStore from '../../../store';
-import ethiopia from '../../assets/image-carousel-parent@2x.png';
 import { ToastContainer, toast } from 'react-toastify';
 import cartImg from '../../assets/cart.svg';
 import check from '../../assets/check.svg';
 import { CiHeart } from "react-icons/ci";
 import "react-toastify/dist/ReactToastify.css";
 
+const today = new Date();
+const tomorrow = new Date(today);
+
+function differenceInDays(date1, date2) {
+  const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+  const diffInMilliseconds = Math.abs(date1 - date2);
+  return Math.round(diffInMilliseconds / oneDay);
+}
+
+function isSameDayAndMonth(date1, date2) {
+  return date1.getDate() === date2.getDate() && date1.getMonth() === date2.getMonth();
+}
+
 // eslint-disable-next-line react/display-name
 const ExampleCustomInput = forwardRef(({value, onClick, isDelivery}, ref) => (
   <button className={styles.dateBtn} onClick={onClick} ref={ref}>
     {
-      value === new Date()
+      isSameDayAndMonth(new Date(value), new Date(tomorrow.setDate(today.getDate() + (isDelivery ? 1 : 3))))
       ? `Choose ${isDelivery ? "delivery" : "returning" } date`
       : new Date(value).toDateString()
     }
@@ -31,16 +43,14 @@ const ExampleCustomInput = forwardRef(({value, onClick, isDelivery}, ref) => (
 const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
   const detailRef = useRef(null);
   const [count, setCount] = useState(1);
-  const today = new Date();
-  const tomorrow = new Date(today);
-  // tomorrow.setDate(today.getDate() + 1);
 
   const [deliveryDate, setDeliveryDate] = useState(tomorrow.setDate(today.getDate() + 1));
   const [returnDate, setReturnDate] = useState(tomorrow.setDate(today.getDate() + 3));
-  const { addToCart, cart, removeAll } = useStore();
+  const { addToCart, cart } = useStore();
+  // console.log(new Date(deliveryDate).getDate());
 
   const isProductInCart = () => {
-    const isTrue = cart.map(el => el.name).includes(name || "Ethiopian Crown");
+    const isTrue = cart.map(el => el.name).includes(selectedProduct.name);
     return isTrue;
   }
 
@@ -48,12 +58,7 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
     if (returnDate < deliveryDate) return toast.error("Set a valid Return Date");
 
     setTimeout(() => {
-      addToCart({
-          name: selectedProduct?.name,
-          price: selectedProduct?.price,
-          image: selectedProduct?.image || ethiopia,
-          quantity: count
-      });
+      addToCart( {...selectedProduct, quantity: count, timeInDays: differenceInDays(deliveryDate, returnDate), deliveryDate, returnDate });
       toast.success("Item added to Cart");
 
       setDeliveryDate(tomorrow.setDate(today.getDate() + 1));
@@ -79,10 +84,10 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
         </div>
         <div>
             <h4>{selectedProduct?.name}</h4>
-            <p>
+            <div>
                 <img src={stars} alt="" />
                 (35)
-            </p>
+            </div>
             <p className={styles.price}>
                 <TbCurrencyNaira size={18} />
                 {selectedProduct.price && formatNumberToCurrency(selectedProduct?.price)}
@@ -90,9 +95,9 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
             <em>Quantity</em>
             <div className={styles.counts}>
               <p>{count}</p>
-              <button onClick={() => setCount(count => count < selectedProduct.quantity ? count + 1 : selectedProduct.quantity)}>+</button>
+              <button onClick={() => setCount(count => count < selectedProduct.stock ? count + 1 : selectedProduct.stock)}>+</button>
               <button onClick={() => setCount(count => count == 1 ? count : count-1)}>-</button>
-              <h5>{selectedProduct?.quantity} units available</h5>
+              <h5>{selectedProduct?.stock} units available</h5>
             </div>
             <em>Sizes</em>
             <div className={styles.sizes}>
@@ -103,8 +108,8 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
 
             <div className={styles.dates}>
               <DatePicker
-              // minDate={}
-                allowSameDay={false}
+                minDate={tomorrow.setDate(today.getDate() + 1)}
+                // allowSameDay={false}
                 selected={deliveryDate}
                 onChange={(date) => setDeliveryDate(date)}
                 customInput={<ExampleCustomInput isDelivery={true} value={deliveryDate} />}

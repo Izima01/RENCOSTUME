@@ -328,11 +328,7 @@ aside button {
 .item {
     display: flex;
     align-items: center;
-    gap: 28px;
-}
-.item img {
-    width: 160px;
-    height: 150px;
+    gap: 22px;
 }
 .item div {
     display: flex;
@@ -342,22 +338,28 @@ aside button {
     justify-content: center;
 }
 .item h4 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #060208;
+    margin-bottom: 0;
 }
 .item b {
     padding-left: 8px;
 }
 .item p {
-    font-size: 18px;
+    /* font-size: 1px; */
     color: #3d3732;
+    margin-bottom: 0;
 }
 .item h3 {
-    font-size: 26px;
+    margin-bottom: 0;
+    font-size: 18px;
     color: #3d3732;
     font-weight: 400;
     margin-bottom: 0;
+}
+.item h3 svg, p svg, b svg {
+    vertical-align: top;
 }
 
 @media screen and (max-width: 1250px) {
@@ -373,7 +375,7 @@ aside button {
     .wrapper h1 {
         font-size: 44px;
     }
-    .review h3 {
+    .review > h3 {
         font-size: 26px;
     }
 }
@@ -478,8 +480,5 @@ aside button {
     }
     .item p {
         font-size: 16px;
-    }
-    .item h3 {
-        font-size: 22px;
     }
 }

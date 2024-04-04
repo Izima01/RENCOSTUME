@@ -33,6 +33,7 @@
 .details div p {
     font-family: "Aceh", sans-serif;
     color: #3d3732;
+    margin-bottom: 0;
 }
 .details div h4 {
     font-size: 18px;
@@ -65,16 +66,18 @@ em {
     border: 2px solid #f3ebfc;
     background-color: transparent;
     color: #3d1551;
-    padding: 4px 10px;
+    padding: 4px 10px !important;
+    margin-bottom: 0;
     border-radius: 16px;
     font-size: 22px;
-    line-height: normal;
+    line-height: 22px;
 }
 .counts h5 {
     font-size: 17px;
     text-wrap: wrap;
     color: #3d1551;
     font-family: "Aceh", sans-serif;
+    margin-bottom: 0;
 }
 .counts button {
     cursor: pointer;
@@ -104,7 +107,7 @@ em {
 }
 .cartButton {
     border: 1px solid #3d1551;
-    padding: 10px;
+    padding: 8px 10px;
     display: flex;
     gap: 28px;
     width: 80%;
@@ -175,7 +178,7 @@ em {
 @media screen and (max-width: 740px) {
     .detailsWrapper {
         width: 80%;
-        padding: 28px 40px;
+        padding: 28px 20px;
     }
     .details {
         grid-template-columns: 1fr;
@@ -184,9 +187,14 @@ em {
         width: 80%;
         /* height: 400px; */
     }
+    .close {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+    }
 }
 @media screen and (max-width: 568px) {
     .image {
-        width: 100%;
+        width: 95%;
     }
 }

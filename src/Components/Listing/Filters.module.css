@@ -4,8 +4,9 @@
     padding: 26px 14px !important;
     border-radius: 10px;
     display: block;
+    position: sticky;
+    top: 16px;
 }
-
 .filters h3 {
     font-family: "Literata", serif;
     font-size: 28px;
@@ -25,7 +26,7 @@
     color: #060208;
     margin-top: 0;
     cursor: pointer;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 .heading svg {
     transition: transform 0.4s;
@@ -45,9 +46,10 @@
 
 .filters label {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 19px;
+    line-height: normal;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .filters label input[type="checkbox"] {
@@ -59,6 +61,6 @@
 
 .filters hr {
     position: static;
-    margin-top: 12px;
+    margin: 12px 0;
     color: #363732;
 }

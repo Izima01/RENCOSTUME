@@ -9,7 +9,6 @@ import ReviewOrder from "../../Components/Checkout/ReviewOrder";
 import useStore from "../../../store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import supabase from "../../supaBaseClient";
 
 const tabs = [
   {
@@ -42,7 +41,6 @@ const Checkout = () => {
       <div className={styles.wrapper}>
         <h1>Checkout</h1>
         <ToastContainer />
-        <button onClick={() => supabase.auth.signOut()}>Sign Out</button>
 
         {
           !user ? (

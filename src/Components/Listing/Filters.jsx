@@ -17,28 +17,28 @@ const Filters = ({ setGender, setRole, setEthnicity, gender, ethnicity, role }) 
     <aside className={styles.filters}>
       <h3>Filters</h3>
       
-      <button className={styles.heading} style={{ marginBottom: showGenders ? '16px': '0' }} onClick={() => setShowGenders(prev => !prev)}>
+      <button className={styles.heading} style={{ marginBottom: showGenders ? '12px': '0' }} onClick={() => setShowGenders(prev => !prev)}>
         <h5>Gender</h5>
         <RiArrowDropDownLine style={{ transform: `rotate(${showGenders ? '-180deg' : '0deg'})` }} size={24} />
       </button>
       <div style={{ maxHeight: showGenders ? '70px' : '0' }}>
         <label>
-          <input type="checkbox" checked={gender === "male"} onChange={(e) => setGender(e.target.checked ? "male" : "female")} />
+          <input type="checkbox" checked={gender === "male"} onChange={(e) => setGender(e.target.checked ? "male" : "")} />
           Male
         </label>
         <label>
-          <input type="checkbox" checked={gender === "female"} onClick={(e) => setGender(e.target.checked ? "female" : "male")} />
+          <input type="checkbox" checked={gender === "female"} onClick={(e) => setGender(e.target.checked ? "female" : "")} />
           Female
         </label>
       </div>
 
       <hr />
 
-      <button className={styles.heading} style={{ marginBottom: showEthnicity ? '16px': '0' }} onClick={() => setShowEthnicity(prev => !prev)}>
+      <button className={styles.heading} style={{ marginBottom: showEthnicity ? '12px': '0' }} onClick={() => setShowEthnicity(prev => !prev)}>
         <h5>Ethnicity</h5>
         <RiArrowDropDownLine style={{ transform: `rotate(${showEthnicity ? '180deg' : '0deg'})` }} size={24} />
       </button>
-      <div style={{ maxHeight: showEthnicity ? '220px' : '0' }}>
+      <div style={{ maxHeight: showEthnicity ? '280px' : '0' }}>
         {
           ethnicityArray.map(eth => (
             <label key={eth}>
@@ -50,7 +50,7 @@ const Filters = ({ setGender, setRole, setEthnicity, gender, ethnicity, role }) 
       </div>
       <hr />
 
-      <button className={styles.heading} style={{ marginBottom: showRole ? '16px': '0' }} onClick={() => setShowRole(prev => !prev)}>
+      <button className={styles.heading} style={{ marginBottom: showRole ? '12px': '0' }} onClick={() => setShowRole(prev => !prev)}>
         <h5>Role</h5>
         <RiArrowDropDownLine style={{ transform: `rotate(${showRole ? '180deg' : '0deg'})` }} size={24} />
       </button>
@@ -67,7 +67,7 @@ const Filters = ({ setGender, setRole, setEthnicity, gender, ethnicity, role }) 
       <hr />
 
       
-      <button className={styles.heading} style={{ marginBottom: showCentury ? '16px': '0' }}>
+      <button className={styles.heading} style={{ marginBottom: showCentury ? '12px': '0' }}>
         <h5>Century</h5>
         <RiArrowDropDownLine style={{ transform: `rotate(${showCentury ? '180deg' : '0deg'})` }} size={24} />
       </button>
