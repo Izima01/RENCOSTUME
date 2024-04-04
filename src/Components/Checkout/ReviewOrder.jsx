@@ -3,9 +3,7 @@ import styles from '../../Pages/CheckoutPage/Checkout.module.css';
 import { FaPencilAlt } from "react-icons/fa";
 import { TbCurrencyNaira } from 'react-icons/tb';
 import { Item } from './Item';
-import { itemsArray } from './Data';
 import useStore from '../../../store';
-
 
 export function formatNumberToCurrency(number) {
     let numStr = number.toString();
@@ -52,7 +50,7 @@ const ReviewOrder = () => {
                 <div>
                     <p>
                         <TbCurrencyNaira size={18} />
-                        2,000
+                        {formatNumberToCurrency(1500 * itemCount)}
                     </p>
                     <p>
                         <TbCurrencyNaira size={18} />
@@ -64,7 +62,7 @@ const ReviewOrder = () => {
                     </p>
                     <p>
                         <TbCurrencyNaira size={18} />
-                        <b>{formatNumberToCurrency(totalCost+2000)}</b>
+                        <b>{formatNumberToCurrency(totalCost + (1500 * itemCount))}</b>
                     </p>
                 </div>
             </div>
@@ -78,8 +76,6 @@ const ReviewOrder = () => {
                 </div>
             </div>
             <div className={styles.items}>
-                {/* <Item /> */}
-                {/* <hr /> */}
                 {
                     cart.map(({image, name, price, quantity, timeinDays, type}, i) => (
                         <Item key={i} image={image} name={name} price={price} quantity={quantity} timeinDays={timeinDays} type={type} />

@@ -9,6 +9,7 @@ import { productList } from "../../Components/Listing/Data";
 
 const Listing = () => {
   const [showDetails, setShowDetails] = useState(false);
+  const [searchText, setSearchText] = useState('');
   const [selectedProduct, setSelectedProduct] = useState({});
   const [productArray, setProductArray] = useState(productList);
 
@@ -20,65 +21,46 @@ const Listing = () => {
 
   useEffect(() => {
     let newArray = [];
-
-
       // Covering just one filter moethod
-      if (gender && !role && !ethnicity) {
-        newArray = productList.filter(el => el.gender == gender);
-        console.log("just gender");
-      }
-      else if (!gender && role && !ethnicity) {
-        newArray = productList.filter(el => el.role == role);
-        console.log("just role");
-      }
-      else if (!gender && !role && ethnicity) {
-        console.log("just ethnicity");
-        newArray = productList.filter(el => el.ethnicity == ethnicity);
-      }
-      
-      // COvering 2 filter methds
-      else if (role && gender && !ethnicity) {
-        console.log("role & gender");
-        newArray = productList.filter(el => el.gender == gender && el.role == role);
-      }
-      else if (!role && gender && ethnicity) {
-        console.log("eth & gender");
-        newArray = productList.filter(el => el.gender == gender && el.ethnicity == ethnicity);
-      }
-      else if (ethnicity && role && !gender) {
-        console.log("eth & role");
-        newArray = productList.filter(el => el.gender == gender && el.role == role);
-      }
+    if (gender && !role && !ethnicity) {
+      newArray = productList.filter(el => el.gender == gender);
+      console.log("just gender");
+    }
+    else if (!gender && role && !ethnicity) {
+      newArray = productList.filter(el => el.role == role);
+      console.log("just role");
+    }
+    else if (!gender && !role && ethnicity) {
+      console.log("just ethnicity");
+      newArray = productList.filter(el => el.ethnicity == ethnicity);
+    }
+    
+    // COvering 2 filter methds
+    else if (role && gender && !ethnicity) {
+      console.log("role & gender");
+      newArray = productList.filter(el => el.gender == gender && el.role == role);
+    }
+    else if (!role && gender && ethnicity) {
+      console.log("eth & gender");
+      newArray = productList.filter(el => el.gender == gender && el.ethnicity == ethnicity);
+    }
+    else if (ethnicity && role && !gender) {
+      console.log("eth & role");
+      newArray = productList.filter(el => el.gender == gender && el.role == role);
+    }
 
-      // All 3 present
-      else if (ethnicity && role && gender) {
-        console.log("all three");
-        newArray = productList.filter(el => el.gender == gender && el.role == role && el.ethnicity == ethnicity);
-      }
-      setProductArray(newArray);
+    // All 3 present
+    else if (ethnicity && role && gender) {
+      console.log("all three");
+      newArray = productList.filter(el => el.gender == gender && el.role == role && el.ethnicity == ethnicity);
+    }
+    setProductArray(newArray);
   }, [gender, role, ethnicity, category]);
 
   useEffect(() => {
-    if (ethnicity) {
-      const newArray = productList.filter(el => el.ethnicity == ethnicity);
-      setProductArray(newArray);
-    }
-  }, [ethnicity]);
-
-  useEffect(() => {
-    if (role) {
-      const newArray = productList.filter(el => el.role == role);
-      setProductArray(newArray);
-    }
-  }, [role]);
-
-  useEffect(() => {
-    if (category) {
       if (category == "all") return setProductArray(productList);
-
       const newArray = productList.filter(el => el.category == category);
       setProductArray(newArray);
-    }
   }, [category]);
 
   const openDetails = (e, product) => {
@@ -86,11 +68,21 @@ const Listing = () => {
     setShowDetails(true);
   }
 
+  useEffect(() => {
+    setGender("");
+    setCategory('all');
+    setEthnicity("");
+    setRole("");
+
+    if (searchText) setProductArray(productList.filter(prod => prod.name.toLowerCase().includes(searchText)));
+    else setProductArray(productList);
+  }, [searchText]);
+
   return (
     <div className={styles.wrapper}>
       <h1>Costume Listing</h1>
       <div className={styles.searchBox}>
-        <input type="search" placeholder='search' />
+        <input type="search" placeholder='search' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
         <CiSearch size={24} stroke='#060208' />
       </div>
       <p className={styles.express}>Express delivery is available for payments made before 11am in Lagos and Abuja.</p>

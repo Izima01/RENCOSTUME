@@ -23,7 +23,7 @@ const useStore = create(persist(
         },
         totalCostFn: () => {
             const { cart } = get();
-            if (cart.length) return cart.map(item => item.quantity*item.price).reduce((prev, curr) => prev + curr);
+            if (cart.length) return cart.map(item => item.quantity * item.price * item.timeInDays).reduce((prev, curr) => prev + curr);
             return 0;
         },
         isChanged: false,
@@ -39,6 +39,12 @@ const useStore = create(persist(
             const updatedCart = removeCart(productName, cart);
             set(state => ({
                 ...state, cart: updatedCart, isChanged: true
+            }))
+        },
+        removeAllofOneProduct(productName) {
+            const {cart} = get();
+            set(state => ({
+                ...state, cart: cart.filter(el => el.name !== productName)
             }))
         },
         removeAll() {

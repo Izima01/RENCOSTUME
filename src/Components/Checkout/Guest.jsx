@@ -16,7 +16,7 @@ const Guest = () => {
     setTimeout(() => {
       setUser({ email });
       toast.success("Sign in Successful.");
-    }, 3000);
+    }, 1000);
     setLoading(false);
   }
 

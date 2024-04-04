@@ -7,11 +7,11 @@ export const Item = ({ image, name, type, timeinDays, price, quantity }) => {
 
     return (
     <div className={styles.item}>
-        <img src={image || nefertiti} alt="" />
+        <img src={image || nefertiti} width={160} height={160} alt="" />
         <div>
             <h4>{name || 'Nefertiti Woven Crown'}</h4>
             <p>
-                {type || 'Rent'}
+                {type[0].toUpperCase().concat(type.substring(1)) || 'Rent'}
                 <b>
                     ({quantity || 2} quantities)
                 </b>
