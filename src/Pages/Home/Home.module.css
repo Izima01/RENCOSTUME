@@ -1,14 +1,14 @@
 .homeWrapper {
     position: relative;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .stats {
     display: flex;
     position: relative;
     justify-content: space-between;
     padding: 0 150px;
-    bottom: -60px;
+    bottom: -40px;
 }
 .stat {
     max-width: 22%;

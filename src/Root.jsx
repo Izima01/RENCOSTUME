@@ -26,6 +26,13 @@ const Root = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [loc.pathname]);
+
   return (
     <>
       <Header />

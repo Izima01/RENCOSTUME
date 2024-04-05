@@ -2,8 +2,11 @@ import styles from './Success.module.css';
 import logo from '../../assets/Logo-small.svg';
 import { FaCheckCircle } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 const Success = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.wrapper}>
         <section>
@@ -17,7 +20,7 @@ const Success = () => {
                 </p>
 
             </div>
-            <button>Back to Home Page</button>
+            <button onClick={() => navigate('/')}>Back to Home Page</button>
         </section>
     </div>
   )

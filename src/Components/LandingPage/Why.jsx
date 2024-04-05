@@ -8,7 +8,7 @@ const Why = () => {
   return (
     <section className={styles.why}>
       <h2>Why <span>RenCostume</span></h2>
-      <p>Unlock boundless creativity with RenCostume! Our vast selection of high-quality costumes ensures you'll stand out at any event. We provide values far beyond your order, few of which are:</p>
+      <p>The core value of RENCOSTUME is providing convenience and peace of mind to customers facing last-minute costume needs. We provide values far beyond your order, few of which are:</p>
       <div className={styles.reasons}>
         <article className={styles.reason}>
           <span>
