@@ -7,10 +7,10 @@ const Success = () => {
   return (
     <div className={styles.wrapper}>
         <section>
-            <img src={logo} width={120} height={120} alt="" />
-            <FaCheckCircle fill='#3d1551' size={60} />
+            <img src={logo} width={110} height={110} alt=""  />
+            <FaCheckCircle fill='#3d1551' size={50} />
             <h4>ORDER SUCCESSFULLY COMPLETED!</h4>
-            <div>
+            <div className={styles.bottom}>
                 <BsInfoCircle size={24} />
                 <p>
                     A notification will be sent when your order has been picked and you can also track your order from the navigation bar.

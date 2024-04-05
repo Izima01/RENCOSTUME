@@ -7,11 +7,9 @@ import AboutUs from '../../Components/LandingPage/AboutUs';
 import Testimonial from '../../Components/LandingPage/Testimonial';
 import Card from '../../Components/LandingPage/Card';
 import google from '../../assets/google.svg';
-import tokopedia from '../../assets/tokopedia.svg';
-import upwork from '../../assets/upwork.svg';
-import microsoft from '../../assets/microsoft.svg';
 import shopify from '../../assets/shopify.svg';
-import stripe from '../../assets/stripe.svg';
+import afa from '../../assets/afa.jpg';
+import hdfa from '../../assets/hdfa.png';
 
 const Home = () => {
   return (
@@ -31,11 +29,9 @@ const Home = () => {
         <h3>Trusted By</h3>
         <div>
           <img src={google} alt="" />
-          <img src={tokopedia} alt="" />
-          <img src={upwork} alt="" />
-          <img src={microsoft} alt="" />
+          <img src={afa} alt="" />
           <img src={shopify} alt="" />
-          <img src={stripe} alt="" />
+          <img src={hdfa} alt="" />
         </div>
       </section>
 

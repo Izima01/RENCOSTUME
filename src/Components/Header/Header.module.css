@@ -3,7 +3,7 @@
     src: url(./assets/fonts/Aceh-Regular.otf) format('opentype');
 }
 
-header {
+.mainn {
     display: flex;
     gap: 30px;
     align-items: center;
@@ -11,8 +11,9 @@ header {
     width: 100%;
     padding: 18px 100px;
     background-color: white;
+    box-shadow: 2px 2px 6px 2px rgba(243, 235, 252, 0.3);
 }
-nav, .mob-nav {
+nav, .mobNav {
     display: flex;
     gap: 40px;
     align-items: center;
@@ -32,22 +33,22 @@ nav, .mob-nav {
     color: #3d1551;
     font-family: "Literata";
 }
-.mob-nav {
+.mobNav {
     display: none !important;
 }
 .ham {
     display: none;
 }
-header div:first-child {
+.mainn div:first-child {
     display: flex;
     gap: 24px;
     align-items: center;
 }
-.search-box {
+.searchBox {
     position: relative;
     width: 360px;
 }
-.search-box input {
+.searchBox input, .searchBoxSmall input {
     padding: 10px 16px;
     border-radius: 8px;
     border: 2px solid #E3E3E3;
@@ -55,23 +56,23 @@ header div:first-child {
     font-size: 18px;
     outline: none;
 }
-.search-box input::placeholder {
+.searchBox input::placeholder {
     font-size: 18px;
     color: #d3d3d3;
 }
-.search-icon {
+.searchIcon {
     position: absolute;
     top: 12px;
     right: 16px;
 }
-header a {
+.mainn a {
     font-size: 20px;
     color: #060208;
     text-decoration: none;
     text-wrap: nowrap;
     font-family: 'Aceh', sans-serif;
 }
-aside {
+.mobileNav {
     background-color: hsl(0, 0%, 100%);
     padding: 20px 24px 48px !important;
     width: fit-content !important;
@@ -79,22 +80,16 @@ aside {
     flex-direction: column;
     gap: 24px;
 }
-.overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
-    transition: 700ms ease-in-out;
-    display: none;
-}
-aside .search-box {
-    margin-bottom: 30px;
+.searchBoxSmall {
+    margin-bottom: 20px;
     padding: 0 !important;
     width: 320px;
+    position: relative;
 }
-aside button.close {
+dialog {
+    transition: all ease-in 0.5s;
+}
+.close {
     margin-left: auto;
     width: unset;
     background-color: transparent;
@@ -102,50 +97,46 @@ aside button.close {
     border: none;
     padding: 0;
 }
-.show {
-    transform: translate(0);
-}
-.hide {
-    transform: translate(-100%, -100%);
-    /* display: none; */
-}
-aside a {
+.mobileNav a {
     font-size: 24px !important;
     font-weight: 500;
     color: #060208;
     text-decoration: none;
     text-wrap: nowrap;
 }
+.mobileNav .rent {
+    display: block;
+}
 
 @media screen and (max-width: 1250px) {
-    header {
+    .mainn {
         padding: 18px 80px;
     }
-    header .logo {
+    .logo {
         width: 140px;
     }
-    header .logo img {
+    .logo img {
         width: 100%;
     }
-    header > .search-box {
+    .searchBox {
         width: 280px;
     }
-    header a {
+    .mainn a {
         font-size: 18px;
     }
-    nav, .mob-nav {
+    nav, .mobNav {
         gap: 32px;
     }
 }
 
 @media screen and (max-width: 960px) {
-    header {
+    .mainn {
         gap: 24px;
         padding: 18px 60px;
     }
-    header a,
-    header > .search-box input,
-    header > .search-box input::placeholder {
+    .mainn a,
+    .searchBox input,
+    .searchBox input::placeholder {
         font-size: 16px;
     }
 }
@@ -154,20 +145,20 @@ aside a {
     .ham {
         display: block;
     }
-    header > .rent {
+    .rent {
         display: none;
     }
-    header {
+    .mainn {
         justify-content: space-between;
         padding: 18px 45px;
     }
-    header > .search-box {
+    .searchBox {
         display: none;
     }
-    header nav {
+    .mainn nav {
         display: none;
     }
-    .mob-nav {
+    .mobNav {
         display: flex !important;
     }
     .overlay {
@@ -176,7 +167,7 @@ aside a {
 }
 
 @media screen and (max-width: 568px) {
-    header {
+    .mainn {
         padding: 18px 30px;
     }
 }

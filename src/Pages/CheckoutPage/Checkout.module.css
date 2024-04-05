@@ -167,16 +167,16 @@ a {
 }
 
 /* Payment Details */
-aside {
+.paymentDets {
     padding: 0;
     width: 100%;
 }
-main aside h3 {
+.paymentDets h3 {
     font-size: 32px;
     color: #3d1551;
     font-weight: bold;
 }
-aside > div {
+.paymentDets > div {
     border: 1px solid #ecdffa;
     padding: 20px;
     text-align: center;
@@ -184,7 +184,7 @@ aside > div {
     width: 90%;
     margin-left: auto;
 }
-aside div img {
+.paymentDets div img {
     margin-bottom: 10px;
     width: 200px;
 }
@@ -199,7 +199,7 @@ aside div img {
     font-weight: 600;
     color: #3d3732;
 }
-aside > div > div {
+.paymentDets > div > div {
     border: 1px solid #f3ebfc;
     padding: 10px;
     background-color: #fbfffe;
@@ -207,27 +207,27 @@ aside > div > div {
     border-radius: 10px;
     margin-bottom: 16px;
 }
-aside > div > div p {
+.paymentDets > div > div p {
     font-size: 20px;
     color: #3d3732;
     margin-bottom: 0;
     line-height: 18px;
     /* font-weight: 500; */
 }
-aside > div > div p span {
+.paymentDets > div > div p span {
     color: #3d3732;
     font-size: 14px;
     font-weight: 300;
     padding-left: 4px;
     font-style: italic;
 }
-aside > div > div h5 {
+.paymentDets > div > div h5 {
     font-size: 23px;
     font-weight: 700;
     margin-top: 8px;
     margin-bottom: 0;
 }
-aside button {
+.paymentDets button {
     width: 100%;
     color: #ffffff;
     background-color: #3d1551;
@@ -272,11 +272,17 @@ aside button {
     margin-left: 8px;
     cursor: pointer;
 }
+.dates p {
+    margin-bottom: 0;
+}
 .dates div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 12px;
+}
+.dates div:last-child {
+    /* gap: 8px; */
 }
 .prices {
     display: flex;
@@ -394,7 +400,7 @@ aside button {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
     }
-    aside div {
+    .paymentDets div {
         width: 100%;
     }
 }
@@ -425,7 +431,7 @@ aside button {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    .main aside h3 {
+    .paymentDets h3 {
         font-size: 28px;
     }
 }
@@ -437,10 +443,10 @@ aside button {
     .tab {
         padding: 7px 10px;
     }
-    aside {
+    .paymentDets {
         padding: 20px 0 20px !important;
     }
-    .main aside h3 {
+    .paymentDets h3 {
         font-size: 24px;
     }
     .review {

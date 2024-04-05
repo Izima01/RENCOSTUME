@@ -3,7 +3,7 @@ import { TbCurrencyNaira } from 'react-icons/tb';
 import styles from '../../Pages/CheckoutPage/Checkout.module.css';
 import nefertiti from '../../assets/nefertiti.png';
 
-export const Item = ({ image, name, type, timeinDays, price, quantity }) => {
+export const Item = ({ image, name, timeinDays, price, quantity }) => {
 
     return (
     <div className={styles.item}>
@@ -11,10 +11,7 @@ export const Item = ({ image, name, type, timeinDays, price, quantity }) => {
         <div>
             <h4>{name || 'Nefertiti Woven Crown'}</h4>
             <p>
-                {type[0].toUpperCase().concat(type.substring(1)) || 'Rent'}
-                <b>
-                    ({quantity || 2} quantities)
-                </b>
+                {quantity} quantit{quantity > 1 ? 'ies' : 'y'}
             </p>
             <p>{timeinDays || 3} Days</p>
             <h3>

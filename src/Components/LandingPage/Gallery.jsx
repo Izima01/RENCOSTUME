@@ -4,8 +4,11 @@ import lin2 from '../../assets/lines-hor.svg';
 import slide1 from '../../assets/slide-1.png';
 import slide2 from '../../assets/slide-2.png';
 import slide3 from '../../assets/slide-3.png';
+import { useNavigate } from 'react-router-dom';
 
 const Gallery = () => {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.gallery}>
         <div className={styles.top}>
@@ -14,7 +17,7 @@ const Gallery = () => {
             <img src={lin2} alt="" className={styles.lin2} />
             <div>
                 <p>Explore our captivating gallery showcasing a myriad of enchanting costumes, each meticulously crafted to inspire and delight. From timeless classics to contemporary favorites, our gallery offers a glimpse into the endless possibilities awaiting you at  RenCostume</p>
-                <button>View All</button>
+                <button onClick={() => navigate('/rent')}>View All</button>
             </div>
         </div>
         <div className={styles.slide}>

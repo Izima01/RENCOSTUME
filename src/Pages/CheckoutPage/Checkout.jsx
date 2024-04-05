@@ -5,10 +5,11 @@ import SignIn from "../../Components/Checkout/SignIn";
 import Create from "../../Components/Checkout/Create";
 import paystack from '../../assets/paystack.svg';
 import { TbCurrencyNaira } from "react-icons/tb";
-import ReviewOrder from "../../Components/Checkout/ReviewOrder";
+import ReviewOrder, { formatNumberToCurrency } from "../../Components/Checkout/ReviewOrder";
 import useStore from "../../../store";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from 'react-router-dom'
 
 const tabs = [
   {
@@ -31,16 +32,31 @@ const Checkout = () => {
     const [accountNum, setAccountNum] = useState('2222222222');
     // eslint-disable-next-line no-unused-vars
     const [accountName, setAccountName] = useState('Paystack Titans');
-    const { user } = useStore();
+    const { user, totalCostFn, deliveryFee, removeAll,setDeliveryFee } = useStore();
+    const navigate = useNavigate();
 
     const handleTabClick = (index) => {
       setActiveTab(index);
+    };
+
+    const makePayment = () => {
+      toast.info('Payment in Progress');
+      setTimeout(() => {
+        removeAll();
+        setDeliveryFee('0');
+      }, 1500);
+      setTimeout(() => {
+        toast.success('Payment Successful');
+      }, 1500);
+      setTimeout(() => {
+        navigate('/success');
+      }, 4400);
     };
   
     return (
       <div className={styles.wrapper}>
         <h1>Checkout</h1>
-        <ToastContainer />
+        <ToastContainer autoClose={1000} />
 
         {
           !user ? (
@@ -78,14 +94,14 @@ const Checkout = () => {
                   marginBottom: `${activeTab == 0 ? '-300' : activeTab == 1 ? '-260' : '0'}px`
                 }}
               >
-                <aside>
+                <aside className={styles.paymentDets}>
                   <h3>Payment Details</h3>
                   <div>
                     <img src={paystack} alt="" />
-                    <p className={styles.email}>johndoe@gmail.com</p>
+                    <p className={styles.email}>{user.email}</p>
                     <p className={styles.price}>
                       <TbCurrencyNaira size={18} />
-                      120,000
+                      {formatNumberToCurrency(totalCostFn() + deliveryFee)}
                     </p>
                     <div>
                       <p>
@@ -98,7 +114,7 @@ const Checkout = () => {
                       <p>Bank Name</p>
                       <h5>{accountName}</h5>
                     </div>
-                    <button>
+                    <button onClick={() => makePayment()}>
                       Make Payment
                     </button>
                     <p className={styles.info}>Bookings will be shown successful when payment has been received</p>

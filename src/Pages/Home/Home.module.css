@@ -76,6 +76,7 @@
 }
 .trusted div img {
     max-width: 13%;
+    height: 64px;
 }
 
 @media screen and (max-width: 1250px) {
@@ -144,8 +145,14 @@
     .trusted {
         padding: 0 30px;
     }
+    .stats {
+        padding: 0 20px;
+        bottom: -80px;
+        gap: 8px;
+    }
     .stat {
         padding: 10px 16px;
+        max-width: 23%;
     }
     .stat span {
         padding: 6px;
@@ -158,7 +165,7 @@
         font-size: 18px;
     }
     .stat p {
-        font-size: 14px;
+        font-size: 13px;
         text-wrap: wrap !important;
     }
 }

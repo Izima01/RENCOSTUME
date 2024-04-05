@@ -34,7 +34,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Nefertiti Woven Crown',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 15000,
         image: nefertiti,
@@ -47,7 +46,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Ethiopia Crown',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 10000,
         image: ethiopia,
@@ -60,7 +58,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Igbo King Crown',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: igboCrown,
@@ -73,7 +70,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Yoruba King Crown',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: yorubaCrown,
@@ -86,7 +82,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Hausa Turban',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: turban,
@@ -99,7 +94,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Blue Kembe for men',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 8000,
         image: kembe,
@@ -112,7 +106,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Green Kembe for men',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: kaftan3,
@@ -125,7 +118,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Wine Kembe for men',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: kaftan2,
@@ -138,7 +130,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Masquerade Costume 1',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 10000,
         image: Masquerade1,
@@ -151,7 +142,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Masquerade Costume 2',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 12000,
         image: Masquerade2,
@@ -164,7 +154,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Masquerade Costume 3',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 13000,
         image: Masquerade3,
@@ -177,7 +166,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Masquerade Costume 4',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 11000,
         image: Masquerade4,
@@ -190,7 +178,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Male Muslim 1',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: MuslimM1,
@@ -203,7 +190,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Male Muslim 2',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: MuslimM2,
@@ -216,7 +202,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Female Muslim 1',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: MuslimF1,
@@ -229,7 +214,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Female Muslim 2',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 5000,
         image: MuslimF2,
@@ -242,7 +226,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Black Tuxedo',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 25000,
         image: tux4,
@@ -255,7 +238,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Blue Tuxedo',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 25000,
         image: tux1,
@@ -268,7 +250,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Green Tuxedo',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 25000,
         image: tux2,
@@ -281,7 +262,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Wine Tuxedo',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 27000,
         image: tux3,
@@ -294,7 +274,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Wedding Gown 1',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 45000,
         image: gown1,
@@ -307,7 +286,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Wedding Gown 2',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 55000,
         image: gown2,
@@ -320,7 +298,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Wedding Gown 3',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 40000,
         image: gown3,
@@ -333,7 +310,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Priest Attrire 1',
-        type: "buy",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 6000,
         image: Priest1,
@@ -346,7 +322,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Priest Attrire 2',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 6000,
         image: Priest2,
@@ -359,7 +334,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Priest Attrire 3',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 6000,
         image: Priest3,
@@ -372,7 +346,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Iro and Buba Purple',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 12000,
         image: yoruba1,
@@ -385,7 +358,6 @@ export const productList = [
     {
         id: v4(),
         name: 'Iro and Buba Adire',
-        type: "rent",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolores at maiores vero eligendi cumque.",
         price: 16000,
         image: yoruba2,

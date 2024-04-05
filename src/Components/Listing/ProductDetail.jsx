@@ -12,8 +12,8 @@ import useStore from '../../../store';
 import { ToastContainer, toast } from 'react-toastify';
 import cartImg from '../../assets/cart.svg';
 import check from '../../assets/check.svg';
-import { CiHeart } from "react-icons/ci";
 import "react-toastify/dist/ReactToastify.css";
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const today = new Date();
 const tomorrow = new Date(today);
@@ -46,8 +46,7 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
 
   const [deliveryDate, setDeliveryDate] = useState(tomorrow.setDate(today.getDate() + 1));
   const [returnDate, setReturnDate] = useState(tomorrow.setDate(today.getDate() + 3));
-  const { addToCart, cart } = useStore();
-  // console.log(new Date(deliveryDate).getDate());
+  const { addToCart, cart, addToLiked, removeFromLiked, liked } = useStore();
 
   const isProductInCart = () => {
     const isTrue = cart.map(el => el.name).includes(selectedProduct.name);
@@ -55,7 +54,9 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
   }
 
   const addProductToCart = () => {
-    if (returnDate < deliveryDate) return toast.error("Set a valid Return Date");
+    if (isSameDayAndMonth(new Date(deliveryDate), new Date(tomorrow.setDate(today.getDate() + 1)))) return toast.error("Select a delivery date");
+    if (isSameDayAndMonth(new Date(returnDate), new Date(tomorrow.setDate(today.getDate() + 3)))) return toast.error("Select a return date");
+
 
     setTimeout(() => {
       addToCart( {...selectedProduct, quantity: count, timeInDays: differenceInDays(deliveryDate, returnDate), deliveryDate, returnDate });
@@ -64,12 +65,12 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
       setDeliveryDate(tomorrow.setDate(today.getDate() + 1));
       setReturnDate(tomorrow.setDate(today.getDate() + 3));
     }, 1000);
-};
+  };
 
   useEffect(() => {
     if (showDetails) return detailRef?.current?.showModal();
     detailRef?.current?.close();
-  });
+  }, [showDetails]);
 
   return (
     <dialog ref={detailRef} className={styles.detailsWrapper}>
@@ -77,15 +78,14 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
       <div className={styles.details}>
         <IoClose size={28} className={styles.close} onClick={() => setShowDetails(false)} />
         <div>
-          {/* <button onClick={() => removeAll()}>Clear Cart</button> */}
             <img src={selectedProduct?.image} className={styles.image} alt="" />
             <h2>Description</h2>
-            <p>{selectedProduct?.description || "The Nefertiti woven crown, inspired by ancient Egyptian regality, exudes opulence and grace. Crafted with intricate golden threads."}</p>
+            <p>{selectedProduct?.name}</p>
         </div>
-        <div>
+        <div style={{ paddingBlock: '16px' }}>
             <h4>{selectedProduct?.name}</h4>
             <div>
-                <img src={stars} alt="" />
+                <img src={stars} alt="" className='pe-2' />
                 (35)
             </div>
             <p className={styles.price}>
@@ -139,15 +139,16 @@ const ProductDetail = ({ showDetails, setShowDetails, selectedProduct }) => {
               </>
               }
             </button>
-            <div className={styles.last}>
-              <button>
-                Buy Now
-              </button>
-              <button>
+            {/* <div className={styles.last}> */}
+              <button className={styles.save}>
                 Save for later
-                <CiHeart size={28} />
+                {
+                    liked.includes(selectedProduct.name) ?
+                    <FaHeart className={styles.likeBtn} fill='white' size={26} onClick={() => removeFromLiked(selectedProduct.name)} />
+                    : <FaRegHeart className={styles.likeBtn} color='white' size={26} onClick={() => addToLiked(selectedProduct.name)} />
+                }
               </button>
-            </div>
+            {/* </div> */}
         </div>
       </div>
     </dialog>

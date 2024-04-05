@@ -16,6 +16,7 @@ const useStore = create(persist(
             }))
         },
         cart: [],
+        liked: [],
         count: () => {
             const { cart } = get();
             if (cart.length) return cart.map(item => item.quantity).reduce((prev, curr) => prev + curr);
@@ -26,12 +27,24 @@ const useStore = create(persist(
             if (cart.length) return cart.map(item => item.quantity * item.price * item.timeInDays).reduce((prev, curr) => prev + curr);
             return 0;
         },
+        deliveryFee: '',
+        setDeliveryFee(val) {
+            set(state => ({
+                ...state, deliveryFee: val
+            }))
+        },
         isChanged: false,
         addToCart(payload) {
             const { cart } = get();
             const updatedCart = updateCart(payload, cart);
             set(state => ({
                 ...state, cart: updatedCart
+            }));
+        },
+        addToLiked(productName) {
+            const { liked } = get();
+            set(state => ({
+                ...state, liked: [...liked, productName]
             }));
         },
         removeFromCart(productName) {
@@ -47,6 +60,12 @@ const useStore = create(persist(
                 ...state, cart: cart.filter(el => el.name !== productName)
             }))
         },
+        removeFromLiked(productName) {
+            const { liked } = get();
+            set(state => ({
+                ...state, liked: liked.filter(el => el.name !== productName)
+            }))
+        },
         removeAll() {
             set(state => ({
                 ...state, cart: []
@@ -55,7 +74,7 @@ const useStore = create(persist(
     }),
     {
         name: 'rencostume',
-        storage: createJSONStorage(() => sessionStorage),
+        storage: createJSONStorage(() => localStorage),
     }
 ));
 
