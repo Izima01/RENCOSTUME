@@ -36,7 +36,7 @@ const ScrollButton = () => {
 
   return (
         <button
-            onClick={scrollToTop}
+            onClick={() => scrollToTop()}
             className="scroll-button"
             style={{ display: showButton ? 'block' : 'none' }}
         >
