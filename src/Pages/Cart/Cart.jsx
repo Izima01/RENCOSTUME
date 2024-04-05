@@ -8,12 +8,19 @@ import delivery from '../../assets/delivery.svg';
 import expressd from '../../assets/express.svg';
 import returnd from '../../assets/return.svg';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Cart = () => {
-   const { cart, removeFromCart, addToCart, removeAllofOneProduct, totalCostFn } = useStore();
-    const navigate = useNavigate();
+   const { cart, removeFromCart, addToCart, removeAllofOneProduct, totalCostFn, setDeliveryFee, deliveryFee, count } = useStore();
+   const navigate = useNavigate();
+   const [deliveryType, setDeliveryType] = useState('normal');
 
-  return (
+   useEffect(() => {
+    setDeliveryFee(count() * (deliveryType == 'normal' ? 1500 : 2000));
+   }, [cart, deliveryType]);
+//    console.log(deliveryFee);
+
+    return (
       <div className='p-5'>
         <div className="mx-0 w-100 my-4">
             <div className='shadow row p-4 w-100'>
@@ -22,22 +29,16 @@ const Cart = () => {
                     <h5 className='col-3'>
                         Product
                     </h5>
-                    <h5 className='col-1'>
-                        Rent
-                    </h5>
-                    <h5 className='col-1'>
-                        Buy
-                    </h5>
                     <h5 className='col-2'>
                         Quantity
                     </h5>
-                    <h5 className='col-1'>
+                    <h5 className='col-2'>
                         Days
                     </h5>
                     <h5 className='col-2'>
                         Price/Day
                     </h5>
-                    <h5 className='col-2'>
+                    <h5 className='col-3'>
                         Subtotal
                     </h5>
                 </div>
@@ -49,16 +50,6 @@ const Cart = () => {
                                     <img src={item.image} alt="Product image" className='prod-img border-0 rounded' />
                                     <IoMdCloseCircleOutline size={24} className='cancel-icon' onClick={() => removeAllofOneProduct(item.name)} />
                                 </div>
-                                <div className='col-1 px-0'>
-                                    <div className='custom-checkbox'>
-                                        <input type="checkbox" disabled defaultChecked={item.type === "rent"} />
-                                    </div>
-                                </div>
-                                <div className='col-1 px-0'>
-                                    <div className='custom-checkbox'>
-                                        <input type="checkbox" disabled defaultChecked={item.type === "buy"} />
-                                    </div>
-                                </div>
                                 <div className='col-2 px-0'>
                                     <div className='qty'>
                                         <span onClick={() => addToCart({...item, quantity: 1})}>+</span>
@@ -66,14 +57,14 @@ const Cart = () => {
                                         <span onClick={() => removeFromCart(item.name)}>-</span>
                                     </div>
                                 </div>
-                                <div className='col-1 px-0 text-center'>{item.timeInDays} Days</div>
+                                <div className='col-2 px-0 text-center'>{item.timeInDays} Days</div>
                                 <div className='col-2 px-0 text-center'>
                                     <p className={'price'}>
                                         <TbCurrencyNaira size={18} />
                                         {formatNumberToCurrency(item?.price)}
                                     </p>
                                 </div>
-                                <div className='col-2 px-0 text-center'>
+                                <div className='col-3 px-0 text-center'>
                                     <p className={'price'}>
                                         <TbCurrencyNaira size={18} />
                                         {formatNumberToCurrency(item?.price * item.quantity * item.timeInDays)}
@@ -90,26 +81,17 @@ const Cart = () => {
                     </div>
                     <div className='row'>
                         <div className='col-md-4 col-sm-8 mx-4 rounded shadow p-4 min-card'>
-                            <div className='row'>
-                                <div className='col-2' >
-                                    <input type="radio" name='deliveryType'  />
-                                </div>
-                                <div className='col'>
-                                    <h6>Delivery</h6>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col-2' >
-                                    <input type="radio" name='deliveryType'  />
-                                </div>
-                                <div className='col'>
-                                    <h6>Express Delivery</h6>
-                                </div>
-                            </div>
+                            <label className='text-decoration-none'>
+                                <input type="radio" checked={deliveryType == 'normal'} required className='me-3' name='deliveryType' onChange={() => setDeliveryType('normal')} />
+                                Delivery
+                            </label>
+                            <label className='text-decoration-none'>
+                                <input type="radio" checked={deliveryType == 'express'} required className='me-3' name='deliveryType' onChange={() => setDeliveryType('express')} />
+                                Express Delivery
+                            </label>
                             <p>Express delivery is only available for payments made before 11am in Lagos and Abuja.</p>
                         </div>
                         <div className=' col-sm-8 col-md-6 mx-4 my-4 shadow rounded-2'>
-                            {/* about to start the form for choosing delivery channel  */}
                             <div className='p-4'>
                                 <h5>Choose Delivery Channel</h5>
                                 <div className='py-2'>
@@ -118,7 +100,7 @@ const Cart = () => {
                                 <p className='price'>
                                     Amount:
                                     <TbCurrencyNaira size={18} className='ms-3' />
-                                    {formatNumberToCurrency(2000)}
+                                    {formatNumberToCurrency(deliveryFee)}
                                 </p>
                                 <div className='py-2'>
                                     <input type="text" placeholder='Phone Number' className='form-control' />
@@ -159,15 +141,14 @@ const Cart = () => {
                             <h3 className='ps-2'><b>Cart Summary</b></h3>
                             <div className='container my-4 bg-purp py-4 px-5 rounded-2'>
                                     <div className='row border-bottom border-black px-0'>
-                                        <p  className='col-9 mb-0'>Express Delivery</p>
+                                        <p  className='col-9 mb-0'>{deliveryType == 'express' && "Express"} Delivery</p>
                                         <p className='price col-3 mb-2 text-end my-0'>
                                             <TbCurrencyNaira size={18} className='ms-3' />
-                                            {formatNumberToCurrency(2000)}
+                                            {formatNumberToCurrency(deliveryFee)}
                                         </p>
                                     </div>
                                     <div className='row border-bottom border-black px-0 pt-3'>
                                         <p className='col-9 mb-2'>Item Total</p>
-                                        {/* <p className='col-3 text-end'>#118,000</p> */}
                                         <p className='price col-3 mb-2 text-end my-0'>
                                             <TbCurrencyNaira size={18} className='ms-3' />
                                             {formatNumberToCurrency(totalCostFn())}
@@ -178,7 +159,7 @@ const Cart = () => {
                                         {/* <div className='col-1'>#120,000</div> */}
                                         <p className='price col-3 mb-2 text-end my-0 fw-bold'>
                                             <TbCurrencyNaira size={18} className='ms-3' />
-                                            {formatNumberToCurrency(totalCostFn() + 2000)}
+                                            {formatNumberToCurrency(totalCostFn() + deliveryFee)}
                                         </p>
                                     </div>
                                     <div>
@@ -191,11 +172,16 @@ const Cart = () => {
                                         <div className="col-9"><p><b>New Total</b></p></div>
                                         <p className='price col-3 mb-2 text-end my-0 fw-bold'>
                                             <TbCurrencyNaira size={18} className='ms-3' />
-                                            {formatNumberToCurrency(totalCostFn() + 2000)}
+                                            {formatNumberToCurrency(totalCostFn() + deliveryFee)}
                                         </p>
                                     </div>
-                                    <div className='container  checkout-btn'>
-                                        <button className='btn btn-purple' onClick={() => navigate("/checkout")}>Check out</button>
+                                    <div className='container checkout-btn'>
+                                        <button
+                                            className='btn btn-purple'
+                                            onClick={() => {
+                                                if (deliveryType) return navigate("/checkout");
+                                            }}
+                                        >Check out</button>
                                     </div>
                                 {/* </div> */}
                             </div>
@@ -203,8 +189,8 @@ const Cart = () => {
                     </div>
                 </div>
 
-                </div>
             </div>
+        </div>
     </div>
   )
 }

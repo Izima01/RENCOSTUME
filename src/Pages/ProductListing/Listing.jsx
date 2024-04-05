@@ -64,8 +64,11 @@ const Listing = () => {
   }, [category]);
 
   const openDetails = (e, product) => {
-    setSelectedProduct(product);
-    setShowDetails(true);
+    if (e.target.tagName == 'svg') return;
+    if (e.target.tagName !== 'svg') {
+      setSelectedProduct(product);
+      setShowDetails(true);
+    }
   }
 
   useEffect(() => {
@@ -91,12 +94,6 @@ const Listing = () => {
         <Filters ethnicity={ethnicity} role={role} gender={gender} setRole={setRole} setEthnicity={setEthnicity} setGender={setGender} />
         <Products category={category} setCategory={setCategory} productArray={productArray} handleClick={(e, product) => openDetails(e, product)} />
       </section>
-      {/* <section className={styles.recommend}>
-        <h3>Recommended for you</h3>
-        <div>
-
-        </div>
-      </section> */}
 
       <ProductDetail showDetails={showDetails} setShowDetails={setShowDetails} selectedProduct={selectedProduct} />
     </div>

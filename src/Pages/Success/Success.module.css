@@ -2,16 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: calc(100vh - 84px);
     padding: 0 100px;
 }
 
 .wrapper section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     justify-content: center;
     align-items: center;
+    gap: 24px;
     text-align: center;
 }
 
@@ -19,7 +19,7 @@
     font-size: 20px;
     color: #363732;
     font-weight: bold;
-    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .wrapper p {
@@ -28,10 +28,10 @@
     font-weight: 300;
     font-style: italic;
     display: inline-block;
+    margin-bottom: 0;
 }
 .wrapper div {
     width: 500px;
-    margin-bottom: 60px;
     display: flex;
     gap: 20px;
     align-items: start;

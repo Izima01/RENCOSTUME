@@ -26,7 +26,6 @@ const Guest = () => {
         <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
         <p>We need your email to process your bookings</p>
         <button onClick={(e) => signInWithEmail(e)} disabled={loading}>{loading ? "Signing In" : "Continue as guest"}</button>
-        {/* <ToastContainer /> */}
     </form>
   )
 }

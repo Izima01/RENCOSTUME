@@ -45,6 +45,7 @@ article.product {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 12px;
 }
 article.product > img {
@@ -54,9 +55,8 @@ article.product > img {
 }
 .price {
     font-family: "Aceh", sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
-    /* margin-block: 8px; */
     margin-bottom: 0;
 }
 .price svg {
@@ -66,7 +66,12 @@ article.product > img {
     margin-bottom: 0;
     font-family: "Aceh", sans-serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
+}
+.likeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 .cartButton {
     border: 1px solid #3d1551;
@@ -125,11 +130,23 @@ article.product > img {
     }
     .products main {
         grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
   }
   
-  @media screen and (max-width: 568px) {
+@media screen and (max-width: 568px) {
     .wrapper {
         padding: 20px 30px;
     }
-  }
+    article.product {
+        justify-content: space-between;
+    }
+    .cartButton {
+        gap: 12px;
+        padding: 8px;
+    }
+    .cartButton img {
+        width: 20px;
+        height: 20px;
+    }
+}

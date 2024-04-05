@@ -7,7 +7,7 @@ const Filters = ({ setGender, setRole, setEthnicity, gender, ethnicity, role }) 
   const [showGenders, setShowGenders] = useState(true);
   // eslint-disable-next-line no-unused-vars
   const [showCentury, setShowCentury] = useState(false);
-  const [showEthnicity, setShowEthnicity] = useState(true);
+  const [showEthnicity, setShowEthnicity] = useState(false);
   const [showRole, setShowRole] = useState(false);
 
   const ethnicityArray = ["Yoruba", "Igbo", "Hausa", "African", "English", "Edo", "Ibibio"];
@@ -15,7 +15,7 @@ const Filters = ({ setGender, setRole, setEthnicity, gender, ethnicity, role }) 
 
   return (
     <aside className={styles.filters}>
-      <h3>Filters</h3>
+        <h3>Filters</h3>
       
       <button className={styles.heading} style={{ marginBottom: showGenders ? '12px': '0' }} onClick={() => setShowGenders(prev => !prev)}>
         <h5>Gender</h5>

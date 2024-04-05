@@ -141,6 +141,9 @@ footer p {
 }
 
 @media screen and (max-width: 600px) {
+    footer div.top {
+        gap: 32px;
+    }
     .socials {
         padding-inline: 20px;
     }
@@ -148,13 +151,22 @@ footer p {
         padding: 0 20px;
     }
     footer h3 {
-        font-size: 24px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    .about ul,
+    .support ul,
+    .resources ul,
+    .security ul {
+        gap: 10px;
+        margin-bottom: 0;
     }
     .about ul li,
     .support ul li,
     .resources ul li,
     .security ul li {
-        font-size: 20px;
+        font-size: 16px;
     }
     footer p {
         text-wrap: nowrap;

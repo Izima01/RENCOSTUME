@@ -32,8 +32,9 @@
 .images article button {
     position: absolute;
     bottom: 4px;
-    right: 20px;
+    right: 10px;
     display: flex;
+    align-items: center;
     gap: 10px;
     border-radius: 6px;
     background-color: #ffffff;
@@ -42,6 +43,9 @@
     padding: 15px;
     text-wrap: nowrap;
     font-family: 'Literata';
+}
+.images article button img {
+    width: 40px;
 }
 .images article.one {
     grid-row: 1 / 3 !important;
@@ -105,6 +109,13 @@
     }
     .categories > .top > p {
         font-size: 16px;
+    }
+    .images article button {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .images article button img {
+        width: 32px;
     }
 }
 

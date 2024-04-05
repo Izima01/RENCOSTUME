@@ -91,6 +91,7 @@ h1 {
     }
     h1 {
         font-size: 40px;
+        width: unset;
     }
     .hero > button {
         display: none;
@@ -102,7 +103,7 @@ h1 {
 
 @media screen and (max-width: 568px) {
     .hero {
-        height: 80vh;
+        height: max-content;
     }
     .heroText {
         font-size: 32px;

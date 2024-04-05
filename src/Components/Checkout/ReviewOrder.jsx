@@ -9,13 +9,13 @@ export function formatNumberToCurrency(number) {
     let numStr = number.toString();
     let parts = numStr.split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
+    return parts.join(".").concat('.00');
 }
 
 const ReviewOrder = () => {
     const [deliveryDate, setDeliveryDate] = useState('25/03/2024');
     const [returningDate, setReturningDate] = useState('31/03/2024');
-    const { totalCostFn, cart, count } = useStore();
+    const { totalCostFn, cart, count, deliveryFee } = useStore();
     const totalCost = totalCostFn();
     const itemCount = count();
 
@@ -50,7 +50,7 @@ const ReviewOrder = () => {
                 <div>
                     <p>
                         <TbCurrencyNaira size={18} />
-                        {formatNumberToCurrency(1500 * itemCount)}
+                        {formatNumberToCurrency(deliveryFee)}
                     </p>
                     <p>
                         <TbCurrencyNaira size={18} />
@@ -62,16 +62,16 @@ const ReviewOrder = () => {
                     </p>
                     <p>
                         <TbCurrencyNaira size={18} />
-                        <b>{formatNumberToCurrency(totalCost + (1500 * itemCount))}</b>
+                        <b>{formatNumberToCurrency(totalCost + deliveryFee)}</b>
                     </p>
                 </div>
             </div>
             <div className={styles.summary}>
                 <div>
-                    <p>{itemCount} item{itemCount>1 && 's'}</p>
+                    <p>{itemCount} item{itemCount > 1 && 's'}</p>
                     <b>
                         <TbCurrencyNaira size={18} />
-                        {formatNumberToCurrency(totalCost+2000)}
+                        {formatNumberToCurrency(totalCost + deliveryFee)}
                     </b>
                 </div>
             </div>

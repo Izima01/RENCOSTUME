@@ -5,14 +5,17 @@ import jar from '../../assets/cloth-jar.svg';
 import people from '../../assets/people.svg';
 import reviews from '../../assets/reviews.svg';
 import { BsBriefcase } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroText}>
         <h1>Every Costume Tells a Story, Unleash your Imagination.</h1>
         <p>Browse our diverse collection of costumes for any occasion. Rent hassle-free and unleash your imagination today</p>
-        <button>CRAFT YOUR PERFECT LOOK</button>
+        <button onClick={() => navigate('/gallery')}>CRAFT YOUR PERFECT LOOK</button>
       </div>
 
       <button>

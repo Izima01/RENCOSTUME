@@ -34,7 +34,6 @@
 .heading h5 {
     font-size: 20px;
 }
-
 .filters > div {
     border: none;
     padding: 0;
@@ -63,4 +62,10 @@
     position: static;
     margin: 12px 0;
     color: #363732;
+}
+
+@media screen and (max-width: 740px) {
+    .filters {
+        position: static;
+    }
 }

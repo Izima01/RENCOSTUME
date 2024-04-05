@@ -1,30 +1,41 @@
-import './Header.css'
+import styles from './Header.module.css';
 import logo from '../../assets/Logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CiHeart, CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
 import MobileNav from './MobileNav';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useStore from '../../../store';
+import '../../index.css';
 
 const Header = () => {
+  const { pathname } = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef(null);
   const { count, cart, user } = useStore();
-  // const totalQty = count();
+
+  useEffect(() => {
+    if (showMenu) return menuRef?.current?.showModal();
+    menuRef?.current?.close();
+  }, [showMenu]);
+
+  useEffect(() => {
+    setShowMenu(false);
+  }, [pathname]);
 
   return (
-    <header>
+    <header className={styles.mainn}>
       <div>
-        <HiMenu className='ham' size={20} onClick={() => setShowMenu(true)} />
-        <a href="/" className='logo'>
+        <HiMenu className={styles.ham} size={20} onClick={() => setShowMenu(true)} />
+        <a href="/" className={styles.logo}>
           <img src={logo} alt="" />
         </a>
       </div>
-      <Link to='/gallery' className='rent'>Rent</Link>
-      <div className="search-box">
+      <Link to='/gallery' className={styles.rent}>Rent</Link>
+      <div className={styles.searchBox}>
         <input type="search" placeholder='What are you looking for?' />
-        <CiSearch size={24} stroke='#060208' className='search-icon' />
+        <CiSearch size={24} stroke='#060208' className={styles.searchIcon} />
       </div>
       <nav>
         <Link to="/">Order Tracking</Link>
@@ -32,27 +43,27 @@ const Header = () => {
         <Link>
           <CiHeart size={24} stroke='#060208' />
         </Link>
-        <Link to="/shopping-cart" className='cart'>
+        <Link to="/shopping-cart" className={styles.cart}>
           <IoCartOutline size={24} stroke='#060208' />
           {
             cart.length !== 0 ? <p>{count()}</p> : <></>
           }
         </Link>
       </nav>
-      <div className='mob-nav'>
+      <div className={styles.mobNav}>
         <Link>
           <CiHeart size={24} stroke='#060208' />
         </Link>
-        <Link to="/shopping-cart" className='cart'>
+        <Link to="/shopping-cart" className={styles.cart}>
           <IoCartOutline size={24} stroke='#060208' />
           {
             cart.length !== 0 ? <p>{count()}</p> : <></>
           }
         </Link>
       </div>
-      <div className={`${showMenu ? 'show' : 'hide'} overlay`}>
-        <MobileNav setShowMenu={setShowMenu} />
-      </div>
+        <dialog ref={menuRef} style={{ border:'none' }}>
+          <MobileNav setShowMenu={setShowMenu} />
+        </dialog>
     </header>
   )
 }
