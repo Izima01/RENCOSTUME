@@ -2,7 +2,7 @@
 import ProductBox from './ProductBox';
 import styles from './Products.module.css';
 
-const categoryArray = ["All", "Clothing", "Accessories", "Headgear", "Footwear"];
+const categoryArray = ["All", "Clothing", "Headgear", "Accessories", "Footwear"];
 
 const Products = ({ handleClick, productArray, setCategory, category }) => {
   return (

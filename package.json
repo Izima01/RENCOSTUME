@@ -2,6 +2,7 @@
   "name": "rencostume",
   "private": true,
   "version": "0.0.0",
+  "homepage": "rencostume.com.ng",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -20,6 +21,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.3",
     "react-toastify": "^10.0.5",
+    "swiper": "^11.1.0",
     "uuid": "^9.0.1",
     "zustand": "^4.5.2"
   },
