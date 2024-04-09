@@ -19,10 +19,11 @@
 }
 .images {
     display: grid;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     row-gap: 10px;
     column-gap: 10px;
-    grid-template-rows: 300px 300px 350px;
+    grid-template-rows: 280px 280px 320px;
     grid-template-columns: 1fr 1fr;
 }
 .images article {

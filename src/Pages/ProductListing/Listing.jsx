@@ -58,6 +58,9 @@ const Listing = () => {
   }, [gender, role, ethnicity, category]);
 
   useEffect(() => {
+    setGender('');
+    setEthnicity('');
+    setRole('');
       if (category == "all") return setProductArray(productList);
       const newArray = productList.filter(el => el.category == category);
       setProductArray(newArray);

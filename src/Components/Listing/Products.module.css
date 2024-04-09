@@ -46,12 +46,13 @@ article.product {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
+    cursor: pointer;
 }
 article.product > img {
     width: 100%;
     border-radius: 10px;
-    height: 300px;
+    height: 280px;
 }
 .price {
     font-family: "Aceh", sans-serif;
@@ -67,6 +68,7 @@ article.product > img {
     font-family: "Aceh", sans-serif;
     font-weight: 600;
     font-size: 20px;
+    line-height: 20px;
 }
 .likeBtn {
     position: absolute;
@@ -75,7 +77,7 @@ article.product > img {
 }
 .cartButton {
     border: 1px solid #3d1551;
-    padding: 16px 8px;
+    padding: 12px 8px;
     display: flex;
     gap: 28px;
     width: 100%;

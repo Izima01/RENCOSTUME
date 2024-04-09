@@ -1,7 +1,5 @@
 .wrapper {
-    padding: 20px 100px 100px;
-    display: flex;
-    align-items: end;
+    padding: 60px 160px 100px;
 }
 .title {
     display: flex;
@@ -10,27 +8,29 @@
     width: 100px;
     position: relative;
 }
-.title span {
+.title button {
     background-color: #3d1551;
-    padding: 60px 24px;
+    padding: 48px 20px;
     display: block;
+    border: none;
 }
 .title h4 {
     transform: rotate(-90deg) translateY(-50%);
     transform-origin: top left;
     position: absolute;
     color: #3d1551;
-    font-size: 40px;
-    bottom: 200px;
+    font-size: 36px;
+    bottom: 120px;
     left: 47%;
     font-family: 'Literata', serif;
+    margin-bottom: 0;
 }
 .info {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 60px;
+    gap: 40px;
 }
 .info h3 {
     color: #060208;
@@ -39,108 +39,91 @@
     text-align: center;
     font-family: 'Aceh', sans-serif;
 }
-.info div {
+.info div:nth-child(2) {
     background-color: #e8dbf9;
-    padding: 60px 25px;
+    padding: 70px 32px;
+    position: relative;
 }
-.info div p {
+.name p {
+    text-align: end;
+}
+.info div:nth-child(2) p {
     font-family: 'Aceh', sans-serif;
+    margin-bottom: 0;
 }
-.wrapper > span {
+.wrapper > button, .next {
     background-color: #3d1551;
-    padding: 60px 24px;
+    padding: 48px 20px;
     display: block;
+    border: none;
 }
-.wrapper > span img {
+.wrapper > button img, .next > img {
     transform: rotateY(180deg);
 }
 .mid {
     display: flex;
     align-items: flex-end;
 }
+.quoteL {
+    position: absolute;
+    top: 20px;
+    left: 32px;
+}
+.quoteR {
+    position: absolute;
+    bottom: 20px;
+    right: 32px;
+}
 
 @media screen and (max-width: 1250px) {
     .wrapper {
-        padding: 20px 80px 100px;
+        padding: 60px 120px 100px;
     }
-    .wrapper > div > img {
-        width: 400px;
-    }
-    .title {
-        width: 80px;
-    }
-    .title span, .wrapper > span {
-        padding: 50px 18px;
-    }
-    .title h4 {
-        font-size: 36px;
-    }
-    span img {
+    button img {
         width: 40px;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .wrapper {
-        padding: 20px 60px 100px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .wrapper > div > img {
-        width: 330px;
-    }
-    .title {
-        justify-content: unset;
-        align-items: center;
-        gap: 40px;
-    }
-    .title span, .wrapper > span {
-        padding: 20px 40px;
-    }
-    .title h4 {
-        font-size: 28px;
-        position: static;
-        transform: rotate(0) translateY(0) !important;
-    }
-    .wrapper > span {
-        display: none;
-    }
-    .info {
-        gap: 40px;
-    }
-    .info div {
-        padding: 40px 18px;
-    }
-    .info h3 {
-        font-size: 24px;
+        padding: 60px 100px 100px;
     }
 }
 
 @media screen and (max-width: 740px) {
     .wrapper {
-        padding: 20px 45px 80px;
-        flex-direction: column;
-        gap: 28px;
+        padding: 50px 20px 80px;
     }
-    .mid {
-        flex-direction: column-reverse;
-        justify-content: stretch;
+    button img {
+        width: 32px;
     }
-    .wrapper .mid img {
-        width: 100%;
-        height: 540px;
+    .title button, .next {
+        padding: 28px 10px;
+    }
+    .title h4 {
+        font-size: 24px;
+    }
+    .info div:nth-child(2) {
+        padding: 48px 16px;
+    }
+    .info div:nth-child(2) svg {
+        width: 24px;
+        height: 24px;
+    }
+    .quoteL {
+        left: 16px;
+        top: 16px;
+    }
+    .quoteR {
+        bottom: 16px;
+        right: 16px;
     }
     .info {
-        align-items: start;
-        gap: 20px;
+        align-items: flex-end;
+        gap: 28px;
     }
-    .info h3 {
-        font-size: 28px;
-    }
-}
-
-@media screen and (max-width: 568px) {
-    .wrapper {
-        padding: 20px 30px 60px;
+    .name p, .name h3 {
+        text-align: end;
+        margin-bottom: 0;
     }
 }

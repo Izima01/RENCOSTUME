@@ -16,11 +16,11 @@ const Home = () => {
     <section className={styles.homeWrapper}>
       <Hero />
 
-      <Why />
-
       <Categories />
 
       <Gallery />
+
+      <Why />
 
       <AboutUs />
       {/* <ScrollUp /> */}
