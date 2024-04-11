@@ -17,6 +17,7 @@ const Hero = () => {
         <p>Browse our diverse collection of costumes for any occasion. Rent hassle-free and unleash your imagination today</p>
         <button onClick={() => navigate('/gallery')}>CRAFT YOUR PERFECT LOOK</button>
       </div>
+      <div className={styles.mobileBg} />
 
       <button>
         <img src={support} alt="" />

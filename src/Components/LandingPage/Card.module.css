@@ -6,7 +6,7 @@
     padding: 90px 40px;
     position: relative;
     bottom: -20px;
-    z-index: 2;
+    z-index: 4;
 }
 .wrapper h5 {
     font-size: 30px;

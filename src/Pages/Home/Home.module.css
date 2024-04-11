@@ -9,6 +9,7 @@
     justify-content: space-between;
     padding: 40px 100px;
     gap: 48px;
+    z-index: 2;
 }
 .stat {
     padding: 20px 36px;

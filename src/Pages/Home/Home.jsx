@@ -12,6 +12,14 @@ import afa from '../../assets/afa.jpg';
 import hdfa from '../../assets/hdfa.png';
 
 const Home = () => {
+  const manipulateString = (inputStr) => {
+    const reverseArray = inputStr.split('');
+    return reverseArray.map((letter, i) => i % 2 == 0 ? letter.toUpperCase() : letter.toLowerCase()).join('');
+    // return reverseArray.join('');
+  };
+
+  console.log(manipulateString('hello'));
+  console.log(manipulateString('hello world'));
   return (
     <section className={styles.homeWrapper}>
       <Hero />
